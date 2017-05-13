@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Marco Ma 的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="天道酬勤">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Marco Ma 的博客">
+<meta property="og:url" content="http://holywork.cn/index.html">
+<meta property="og:site_name" content="Marco Ma 的博客">
+<meta property="og:description" content="天道酬勤">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Marco Ma 的博客">
+<meta name="twitter:description" content="天道酬勤">
+  
+    <link rel="alternate" href="/atom.xml" title="Marco Ma 的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Marco Ma 的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">keep learning</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://holywork.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Excel JDBC 上手Demo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017" class="article-date">
+  <time datetime="2017-05-10T15:03:14.616Z" itemprop="datePublished">2017-05-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#Excel JDBC（xlSQL）上手Demo</p>
+<p>###说明：<br>本贴是通过 ailvey 同学的<a hrf="http://blog.csdn.net/ailvey/article/details/8779119">Excel Jdbc Driver 文档</a>学习后归纳的，并没有做过多的测试来测评其性能和实用性。</p>
+<p>###简介：<br>简单来说xlSQL就是让Excel能像数据库那样通过JDBC来进行增删查改</p>
+<p>###原理：<br>主要原理就是将指定文件夹下的Excel文件读入到内存中，然后存入<a href="http://baike.baidu.com/link?url=GpXnd2gu2Jdf1LSsiMfQUa9sadfSadVt3JdebJf6nN1YMKoqpjulPU0-EYx4sHLUgOvZtEpHjxA8wib_PAZFAa" target="_blank" rel="external">hsqldb</a>中，使其可以通过JDBC驱动和sql语句来对Excel进行操作。<br><br>如下图所示<br><br><strong>Excel 所在的文件将映射成一个数据库</strong><br><br><strong>该文件夹下的所有Excel文件将映射成Schema</strong><br><br><strong>而Excel文件内的sheet将映射成Table</strong><br><br><img src="http://img.my.csdn.net/uploads/201304/09/1365504743_4965.gif"></p>
+<p>###Demo</p>
+<p><hr><br>下载地址：<a herf="链接: https://pan.baidu.com/s/1bpeTkdx">点我到百度云下载</a> 密码: <span style="color:red">asnd</span></p>
+<p>通过下载地址可以下载Demo。<br><br>所需的jar包都在lib中<br></p>
+<blockquote>
+<p>commons-cli-1.0.jar<br><br>commons-logging.jar<br><br>crimson.jar<br><br>hsqldb.jar<br><br>jaxp.jar<br><br>jconfig.jar<br><br>jmxri.jar<br><br>jxl.jar<br><br>mysql-connector-java-3.0.10-stable-bin.jar<br><br>xlSQL-Y7.jar<br></p>
+</blockquote>
+<p>引入所需的包后需要将xlsql_config.xml放到根目录下<br><br>最后的项目架构如下图：<br><br><img src="http://i.imgur.com/x7qj3Da.png" alt=""></p>
+<p>测试代码：<br>总的来说还是挺接近JDBC的，不详细说，看下图吧<br><br><img src="http://i.imgur.com/JjCpNu1.png" alt=""></p>
+<p>###hsqldb<br>xlSQL 最后打交道的还是hsqldb 所以 hsqldb 常用命令还是要了解一下的<br><br>点击<a href="http://blog.csdn.net/menghuannvxia/article/details/52059138" target="_blank" rel="external">HSQLDB常用命令</a> 熟悉一下吧</p>
+<blockquote>
+<p>提示<br><br><br>使用SUM,AVG函数的时候会提示 Sum on non-numeric data not allowed 的错误<br><br>我们可以用CAST函数来进行非数值转换为数值如 SELECT SUM(CAST(AGE AS INT)) FROM DEMO.student<br><br><br><br>分页查询示例：SELECT LIMIT 0 2 * FROM DEMO.student</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://holywork.cn/2017" data-id="cj2mslat40000ekez2g950hhm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017" class="article-date">
+  <time datetime="2017-04-25T14:08:27.116Z" itemprop="datePublished">2017-04-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://holywork.cn/2017" data-id="cj2mslatf0001ekezj5u22z1a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Marco Ma<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
