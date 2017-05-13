@@ -9,7 +9,7 @@
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Marco Ma 的博客">
-<meta property="og:url" content="http://holywork.cn/2017">
+<meta property="og:url" content="https://github.com/Fantastic-Marco/marco.git.io.git/2017">
 <meta property="og:site_name" content="Marco Ma 的博客">
 <meta property="og:description" content="#Excel JDBC（xlSQL）上手Demo ###说明：本贴是通过 ailvey 同学的Excel Jdbc Driver 文档学习后归纳的，并没有做过多的测试来测评其性能和实用性。 ###简介：简单来说xlSQL就是让Excel能像数据库那样通过JDBC来进行增删查改 ###原理：主要原理就是将指定文件夹下的Excel文件读入到内存中，然后存入hsqldb中，使其可以通过JDBC驱动和sq">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201304/09/1365504743_4965.gif">
@@ -66,7 +66,7 @@
         <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://holywork.cn"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/Fantastic-Marco/marco.git.io.git"></form>
       </div>
     </div>
   </div>
@@ -104,7 +104,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://holywork.cn/2017" data-id="cj2mslat40000ekez2g950hhm" class="article-share-link">Share</a>
+      <a data-url="https://github.com/Fantastic-Marco/marco.git.io.git/2017" data-id="cj2mzlayb0000ckezkprnsonu" class="article-share-link">Share</a>
       
       
     </footer>
